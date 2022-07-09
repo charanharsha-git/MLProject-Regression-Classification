@@ -55,7 +55,7 @@ def select_variable():
 
 @app.route('/ModelResults',methods=["POST","GET"])
 def model_results():
-
+    upload()
     if request.method == "POST":
 
         #dep_var()
@@ -75,7 +75,7 @@ def upload2():
     global col_list
     if request.method == "POST":
 
-        df = pd.read_csv(request.files.get('myfile'))
+        #df = pd.read_csv(request.files.get('myfile'))
         col_list = m2.cat_var(df)
         print(col_list)
         return render_template("Classification.html",data_frame=df,column_list=col_list)
