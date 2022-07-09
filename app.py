@@ -9,7 +9,7 @@ col_list=None
 dependent_var=None
 ret=None
 
-@app.route('/MLProject',methods=["POST","GET"])
+@app.route('/',methods=["POST","GET"])
 def select_reg_class():
     global ret
     if request.method == "POST":
