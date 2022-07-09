@@ -55,11 +55,11 @@ def select_variable():
 
 @app.route('/ModelResults',methods=["POST","GET"])
 def model_results():
-    upload()
+    
     if request.method == "POST":
 
-        #dep_var()
-        #df = pd.read_csv(request.files.get('myfile'))
+        
+        
         dependent_var = request.form["dname"]
         preprocessed=m.preprocessing(df)
         X,Y=m.x_n_y(preprocessed,dependent_var)
@@ -100,7 +100,7 @@ def model_results2():
 
     if request.method == "POST":
 
-        #dep_var()
+        
         dependent_var = request.form["dname"]
         preprocessed=m2.preprocessing(df)
         X,Y=m2.x_n_y(preprocessed,dependent_var)
