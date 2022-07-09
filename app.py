@@ -59,7 +59,7 @@ def model_results():
     if request.method == "POST":
 
         #dep_var()
-        df = pd.read_csv(request.files.get('myfile'))
+        #df = pd.read_csv(request.files.get('myfile'))
         dependent_var = request.form["dname"]
         preprocessed=m.preprocessing(df)
         X,Y=m.x_n_y(preprocessed,dependent_var)
