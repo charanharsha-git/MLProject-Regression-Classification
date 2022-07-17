@@ -32,7 +32,7 @@ def upload():
 
         df = pd.read_csv(request.files.get('myfile'))
         col_list = df.columns
-        return render_template("Regression.html",data_frame=df.to_html(),column_list=col_list)
+        return render_template("Regression.html",data_frame=df,column_list=col_list)
     return render_template("Regression.html")
 
 
@@ -66,7 +66,7 @@ def model_results():
         x_train, x_test, y_train, y_test=m.train_test_split1(X,Y)
         rmse= m.models(x_train,y_train,x_test,y_test)
 
-        return render_template("model results.html",scores=rmse.to_html(),data_frame=df,dependent_var=dependent_var)
+        return render_template("model results.html",scores=rmse,data_frame=df,dependent_var=dependent_var)
     return render_template("model results.html")
 
 @app.route('/Classification',methods=["POST","GET"])
@@ -107,7 +107,7 @@ def model_results2():
         x_train, x_test, y_train, y_test=m2.train_test_split1(X,Y)
         accuracies,classifiers= m2.models(x_train,y_train,x_test,y_test)
 
-        return render_template("model results2.html",scores=accuracies.to_html(),data_frame=df,dependent_var=dependent_var,classifiers=classifiers)
+        return render_template("model results2.html",scores=accuracies,data_frame=df,dependent_var=dependent_var,classifiers=classifiers)
     return render_template("model results2.html")
 
 @app.route('/Classification plot',methods=["POST","GET"])
